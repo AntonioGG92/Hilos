@@ -1,6 +1,6 @@
 public class Supermercado {
     public static void main(String[] args) {
-        long initialTime = System.currentTimeMillis();
+        long tiempoInicial = System.currentTimeMillis();
 
         // Clientes con sus carritos
         String[] carritoCliente1 = {"Leche", "Pan", "Huevos", "Cereal", "Mantequilla"};
@@ -10,12 +10,11 @@ public class Supermercado {
         String[] carritoCliente5 = {"Papel Higienico", "Papel Aluminio", "Jabon", "Shampoo", "Detergente"};
 
         // Crear hilos para representar los clientes
-        Thread cliente1 = new Thread(new Cliente("Cliente 1", carritoCliente1, initialTime, 1));
-        Thread cliente2 = new Thread(new Cliente("Cliente 2", carritoCliente2, initialTime, 2));
-        Thread cliente3 = new Thread(new Cliente("Cliente 3", carritoCliente3, initialTime, 1));
-        Thread cliente4 = new Thread(new Cliente("Cliente 4", carritoCliente4, initialTime, 2));
-        Thread cliente5 = new Thread(new Cliente("Cliente 5", carritoCliente5, initialTime, 1));
-        
+        Thread cliente1 = new Thread(new Cliente("Cliente 1", carritoCliente1, tiempoInicial, 1));
+        Thread cliente2 = new Thread(new Cliente("Cliente 2", carritoCliente2, tiempoInicial, 2));
+        Thread cliente3 = new Thread(new Cliente("Cliente 3", carritoCliente3, tiempoInicial, 1));
+        Thread cliente4 = new Thread(new Cliente("Cliente 4", carritoCliente4, tiempoInicial, 2));
+        Thread cliente5 = new Thread(new Cliente("Cliente 5", carritoCliente5, tiempoInicial, 1));
 
         // Iniciar los hilos
         cliente1.start();

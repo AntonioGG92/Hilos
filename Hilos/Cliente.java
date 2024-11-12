@@ -1,32 +1,34 @@
 class Cliente implements Runnable {
+    
     private String nombre;
     private String[] carrito;
-    private long initialTime;
-    private int numCaja;
+    private long tiempoInicial;
+    private int numeroCaja;
 
-    public Cliente(String nombre, String[] carrito, long initialTime, int numCaja) {
+    public Cliente(String nombre, String[] carrito, long tiempoInicial, int numeroCaja) {
         this.nombre = nombre;
         this.carrito = carrito;
-        this.initialTime = initialTime;
-        this.numCaja = numCaja;
+        this.tiempoInicial = tiempoInicial;
+        this.numeroCaja = numeroCaja;
     }
+    
     @Override
     public void run() {
-        System.out.println(nombre + " comienza a ser atendido en la caja " + numCaja + " al tiempo: "
-                + (System.currentTimeMillis() - initialTime) + " ms");
+        System.out.println(nombre + " comienza a ser atendido en la caja " + numeroCaja + " al tiempo: "
+                + (System.currentTimeMillis() - tiempoInicial) + " ms");
 
         for (int i = 0; i < carrito.length; i++) {
             procesarProducto(carrito[i]);
-            System.out.println(nombre + " pasa el producto " + carrito[i] + " por la caja " + numCaja + " al tiempo: "
-                    + (System.currentTimeMillis() - initialTime) + " ms");
+            System.out.println(nombre + " pasa el producto " + carrito[i] + " por la caja " + numeroCaja + " al tiempo: "
+                    + (System.currentTimeMillis() - tiempoInicial) + " ms");
         }
-        System.out.println(nombre + " ha terminado en la caja " + numCaja + " al tiempo: "
-                + (System.currentTimeMillis() - initialTime) + " ms");
+        System.out.println(nombre + " ha terminado en la caja " + numeroCaja + " al tiempo: "
+                + (System.currentTimeMillis() - tiempoInicial) + " ms");
     }
-
+    
     private void procesarProducto(String producto) {
         try {
-            Thread.sleep(1000); // Emula el tiempo de procesar cada producto (1 segundo).
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
