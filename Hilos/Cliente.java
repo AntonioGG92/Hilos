@@ -15,15 +15,15 @@ class Cliente implements Runnable {
     @Override
     public void run() {
         System.out.println(nombre + " comienza a ser atendido en la caja " + numeroCaja + " al tiempo: "
-                + (System.currentTimeMillis() - tiempoInicial) + " ms");
+                + (System.currentTimeMillis() - this.tiempoInicial) + " ms");
 
         for (int i = 0; i < carrito.length; i++) {
             procesarProducto(carrito[i]);
             System.out.println(nombre + " pasa el producto " + carrito[i] + " por la caja " + numeroCaja + " al tiempo: "
-                    + (System.currentTimeMillis() - tiempoInicial) + " ms");
+                    + (System.currentTimeMillis() - this.tiempoInicial) + " ms");
         }
         System.out.println(nombre + " ha terminado en la caja " + numeroCaja + " al tiempo: "
-                + (System.currentTimeMillis() - tiempoInicial) + " ms");
+                + (System.currentTimeMillis() - this.tiempoInicial) + " ms");
     }
     
     private void procesarProducto(String producto) {
